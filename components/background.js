@@ -3,8 +3,7 @@ import { StyleSheet, Dimensions, StatusBar } from "react-native";
 import Svg, { Defs, LinearGradient, Stop, Rect } from "react-native-svg";
 
 const LinearGradientBackground = () => {
-  const height = Dimensions.get("screen").height;
-  const width = Dimensions.get("screen").width;
+  const { height, width } = Dimensions.get("screen");
   return (
     <>
       <StatusBar barStyle="light-content" />
