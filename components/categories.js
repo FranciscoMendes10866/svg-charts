@@ -6,10 +6,10 @@ const CategoriesChart = () => {
   const radius = 70;
   const circleCircumference = 2 * Math.PI * radius;
 
-  const total = 20;
-  const groceries = 10;
-  const bills = 6;
-  const regular = 4;
+  const groceries = 241;
+  const bills = 372;
+  const regular = 188;
+  const total = groceries + bills + regular;
 
   const groceriesPercentage = (groceries / total) * 100;
   const billsPercentage = (bills / total) * 100;
@@ -88,7 +88,7 @@ const CategoriesChart = () => {
             )}
           </G>
         </Svg>
-        <Text style={styles.label}>{total}</Text>
+        <Text style={styles.label}>{total}€</Text>
       </View>
     </View>
   );
