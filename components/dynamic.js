@@ -6,20 +6,20 @@ const DynamicChart = () => {
   const radius = 70;
   const circleCircumference = 2 * Math.PI * radius;
 
-  const total = 9;
   const expired = 2;
-  const nonExpired = 7;
+  const nonExpired = 4;
+  const total = expired + nonExpired;
 
   const data = [];
 
   for (let i = 1; i <= expired; i++) {
     data.push({
-      color: "#A6B1E1",
+      color: "#F0A500",
     });
   }
 
   for (let i = 1; i <= nonExpired; i++) {
-    data.push({ color: "#424874" });
+    data.push({ color: "#334756" });
   }
 
   const percentage = (1 / total) * 100;
@@ -34,22 +34,33 @@ const DynamicChart = () => {
       <View style={styles.graphWrapper}>
         <Svg height="160" width="160" viewBox="0 0 180 180">
           <G rotation={-90} originX="90" originY="90">
-            {data.map((element, index) => (
+            {total === 0 ? (
               <Circle
-                key={index}
                 cx="50%"
                 cy="50%"
                 r={radius}
-                stroke={element.color}
+                stroke="#F1F6F9"
                 fill="transparent"
                 strokeWidth="40"
-                strokeDasharray={circleCircumference}
-                strokeDashoffset={strokeDashoffset + sliceSpacing}
-                rotation={angle * index}
-                originX="90"
-                originY="90"
               />
-            ))}
+            ) : (
+              data.map((element, index) => (
+                <Circle
+                  key={index}
+                  cx="50%"
+                  cy="50%"
+                  r={radius}
+                  stroke={element.color}
+                  fill="transparent"
+                  strokeWidth="40"
+                  strokeDasharray={circleCircumference}
+                  strokeDashoffset={strokeDashoffset + sliceSpacing}
+                  rotation={angle * index}
+                  originX="90"
+                  originY="90"
+                />
+              ))
+            )}
           </G>
         </Svg>
         <Text style={styles.label}>{total}</Text>
