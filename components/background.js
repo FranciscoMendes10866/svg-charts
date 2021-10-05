@@ -7,7 +7,7 @@ const LinearGradientBackground = () => {
   return (
     <>
       <StatusBar barStyle="light-content" />
-      <Svg height={height} width={width} style={styles.container}>
+      <Svg height={height} width={width} style={styles.wrapper}>
         <Defs>
           <LinearGradient id="grad" x1="0" y1="0" x2="0" y2="1">
             <Stop offset="0" stopColor="#96fbc4" stopOpacity="1" />
@@ -23,7 +23,7 @@ const LinearGradientBackground = () => {
 export default LinearGradientBackground;
 
 const styles = StyleSheet.create({
-  container: {
+  wrapper: {
     zIndex: -1,
     position: "absolute",
   },
