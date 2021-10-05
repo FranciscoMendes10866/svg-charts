@@ -14,12 +14,12 @@ const DynamicChart = () => {
 
   for (let i = 1; i <= expired; i++) {
     data.push({
-      color: "#F0A500",
+      color: "#A6B1E1",
     });
   }
 
   for (let i = 1; i <= nonExpired; i++) {
-    data.push({ color: "#334756" });
+    data.push({ color: "#424874" });
   }
 
   const percentage = (1 / total) * 100;
@@ -27,7 +27,7 @@ const DynamicChart = () => {
     circleCircumference - (circleCircumference * percentage) / 100;
 
   const angle = (1 / total) * 360;
-  const sliceSpacing = 4;
+  const sliceSpacing = total === 1 ? 0 : 4;
 
   return (
     <View style={styles.container}>
